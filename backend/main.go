@@ -4,6 +4,7 @@ import (
 	"fmt"
 
 	"github.com/arvrao/kanban-board-app/router"
+	"github.com/arvrao/kanban-board-app/database"
 	"github.com/gofiber/fiber/v2"
 	"github.com/gofiber/fiber/v2/middleware/cors"
 	"github.com/gofiber/fiber/v2/middleware/logger"
@@ -11,6 +12,7 @@ import (
 )
 
 func main() {
+	database.Connect()
 	app := fiber.New()
 	app.Use(logger.New())
 	app.Use(cors.New())
