@@ -7,6 +7,7 @@ import (
 	"strconv"
 
 	"github.com/arvrao/kanban-board-app/config"
+	"github.com/arvrao/kanban-board-app/model"
 	"gorm.io/driver/postgres"
 	"gorm.io/gorm"
 	"gorm.io/gorm/logger"
@@ -38,7 +39,7 @@ func Connect() {
 	log.Println("Connected")
 	db.Logger = logger.Default.LogMode(logger.Info)
 	log.Println("running migrations")
-	// db.AutoMigrate(&model.{})
+	db.AutoMigrate(&model.Project{})
 	DB = Dbinstance{
 		Db: db,
 	}
